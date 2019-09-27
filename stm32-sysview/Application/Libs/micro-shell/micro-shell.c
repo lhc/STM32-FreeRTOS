@@ -72,8 +72,10 @@ static void vTaskShell(void *pvParameters)
 {
 	for(;;)
 	{
-		xSemaphoreTake(xSemaphoreShell, portMAX_DELAY);
-		shell_checkMessage();
+		if(xSemaphoreTake(xSemaphoreShell, portMAX_DELAY) == pdTRUE)
+		{
+			shell_checkMessage();
+		}
 	}
 }
 
@@ -174,7 +176,7 @@ void Shell_TaskInit(uint16_t multi_stack_size)
 	vQueueAddToRegistry(xSemaphoreShell, "shellSem");
 
 	/* Start micro-shell task */
-	xReturned = xTaskCreate(vTaskShell, "tkSheel", configMINIMAL_STACK_SIZE * multi_stack_size, NULL, 3, NULL);
+	xReturned = xTaskCreate(vTaskShell, "tkShell", configMINIMAL_STACK_SIZE * multi_stack_size, NULL, 3, NULL);
 	configASSERT(xReturned);
 }
 

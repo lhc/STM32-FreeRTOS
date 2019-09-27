@@ -52,6 +52,7 @@ static HAL_StatusTypeDef Leds_CommandLine(uint16_t argc, uint8_t **argv);
 static HAL_StatusTypeDef Help_Commads(void)
 {
 	SHELL_PRINTF("Supported commands:\r\n");
+	SHELL_PRINTF("> rtos");
 	SHELL_PRINTF("> get <v1>");
 	SHELL_PRINTF("\t temperature");
 	SHELL_PRINTF("\t humidity");

@@ -72,6 +72,7 @@ void taskUseCPU(void *pvParameters)
 static HAL_StatusTypeDef Help_Commads(void)
 {
 	SHELL_PRINTF("Supported commands:\r\n");
+	SHELL_PRINTF("> rtos");
 	SHELL_PRINTF("> get <v1>");
 	SHELL_PRINTF("\t temperature");
 	SHELL_PRINTF("\t humidity");
@@ -84,7 +85,7 @@ static HAL_StatusTypeDef Help_Commads(void)
 	SHELL_PRINTF("\t off");
 	SHELL_PRINTF("\t blink");
 	SHELL_PRINTF("\t heartbeat");
-	SHELL_PRINTF("> comsume");
+	SHELL_PRINTF("> consume");
 	SHELL_PRINTF("\t create");
 	SHELL_PRINTF("\t delete");
 
